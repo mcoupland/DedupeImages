@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Security.Cryptography;
 
-namespace ImageDedupe;
+namespace DedupeImages;
 public static class ImageDeduper
 {
     public static void DedupeImages(
@@ -24,7 +24,7 @@ public static class ImageDeduper
             ".jpg",".jpeg",".png",".gif",".bmp",".tif",".tiff",".webp",".heic"
         };
 
-        // 1) Gather candidates
+        // 1) Gather candidate images
         var files = Directory.EnumerateFiles(sourceRoot, "*.*", searchOpt)
             .Where(f => exts.Contains(Path.GetExtension(f)))
             // Avoid re-processing files already in destination folders if they are under sourceRoot
